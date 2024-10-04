@@ -4,64 +4,48 @@
 class
 	Window {
 public:
-	Window() = default;
-	Window(int width, int height, const std::string& title);
-	~Window();
+	Window() = default; /* Constructor por defecto de la clase Window.*/
+	Window(int width, int height, const std::string& title); /* Constructor que crea una ventana con dimensiones y título proporcionados.*/
+	~Window(); /* Destructor */
 
 	void
-		handleEvents();
+		handleEvents(); /* Maneja los eventos de la ventana*/
 
-	/**
-	 * @brief Limpia el contenido de la ventana con el color predeterminado.
-	 */
+	
 	void
-		clear();
+		clear(); /* Limpia la pantalla*/
 
-	/**
-	 * @brief Muestra el contenido de la ventana en la pantalla.
-	 */
+	
 	void
-		display();
+		display(); /* Muestra el contenido renderizado*/
 
-	/**
-	 * @brief Verifica si la ventana sigue abierta.
-	 *
-	 * @return true si la ventana est? abierta, false en caso contrario.
-	 */
+	
 	bool
-		isOpen() const;
+		isOpen() const; /*Checa si está abierta.*/
 
-	/**
-	 * @brief Dibuja un objeto que puede ser dibujado en la ventana.
-	 *
-	 * @param drawable Referencia a un objeto SFML que puede ser dibujado.
-	 */
+	
 	void
-		draw(const sf::Drawable& drawable);
+		draw(const sf::Drawable& drawable);  /* Dibuja un objeto*/
 
-	/**
-	 * @brief Obtiene el objeto interno SFML RenderWindow.
-	 *
-	 * @return Un puntero al objeto interno SFML RenderWindow.
-	 */
-	sf::RenderWindow*
+	
+	sf::RenderWindow* /* Devuelve un puntero a la ventana SFML.*/
 		getWindow();
 
-	// Funcion de inicializacion
+	
 	void
-		init();
+		init(); /* Inicializa la ventana*/
 
-	// Funcion que se actualiza por frame
+	
 	void
-		update();
+		update(); /*Actualiza el estado de la ventana.*/
 
-	// Funcion de renderizado
-	void
-		render();
 
 	void
-		destroy();
+		render(); /* Renderiza el contenido */
+
+	void
+		destroy(); /*Libera los recursos y destruye la ventana.*/
 
 private:
-	sf::RenderWindow* m_window;
+	sf::RenderWindow* m_window; /*Puntero a la ventana de SFML.*/
 };

@@ -1,69 +1,42 @@
 #pragma once
-class Window;
+class Window; /*Declaración de la clase Window.*/
 
-/**
- * @enum ComponentType
- * @brief Tipos de componentes disponibles en el juego.
- */
 enum
-	ComponentType {
-	NONE = 0,
-	TRANSFORM = 1,
-	SPRITE = 2,
-	RENDERER = 3,
-	PHYSICS = 4,
-	AUDIOSOURCE = 5,
-	SHAPE = 6,
+	ComponentType { 
+	NONE = 0,	/* Componente no definido.*/
+	TRANSFORM = 1, /* Componente de transformación*/
+	SPRITE = 2, /* Componente de sprite*/
+	RENDERER = 3, /* Componente de renderizado.*/
+	PHYSICS = 4, /* Componente de física.*/
+	AUDIOSOURCE = 5, /* Componente de fuente de audio.*/
+	SHAPE = 6, /*Componente de figura*/
 };
 
-/**
- * @class Component
- * @brief Clase base abstracta para todos los componentes del juego.
- *
- * La clase Component define la interfaz b?sica que todos los componentes deben implementar,
- * permitiendo actualizar y renderizar el componente, as? como obtener su tipo.
- */
+
 class
 	Component {
 public:
-	/**
-	 * @brief Constructor por defecto.
-	 */
-	Component() = default;
+	
+	Component() = default; /* Constructor por defecto.*/
 
-	/**
-	 * @brief Constructor con tipo de componente.
-	 * @param type Tipo del componente.
-	 */
-	Component(const ComponentType type) : m_type(type) {}
+	
+	Component(const ComponentType type) : m_type(type) {} /*  Constructor que inicializa el tipo del componente.*/
 
-	/**
-	 * @brief Destructor virtual.
-	 */
+	
 	virtual
-		~Component() = default;
+		~Component() = default; /*  Destructor virtual.*/
 
-	/**
-	 * @brief M?todo virtual puro para actualizar el componente.
-	 * @param deltaTime El tiempo transcurrido desde la ?ltima actualizaci?n.
-	 */
+	
 	virtual void
-		update(float deltaTime) = 0;
+		update(float deltaTime) = 0; /* Método virtual para actualizar el componente*/
 
-	/**
-	 * @brief M?todo virtual puro para renderizar el componente.
-	 * @param Window Contexto del dispositivo para operaciones gr?ficas.
-	 */
+	
 	virtual void
-		render(Window window) = 0;
+		render(Window window) = 0; /* Método virtual para renderizar el componente*/
 
-	/**
-   * @brief Obtiene el tipo del componente.
-   * @return El tipo del componente.
-   */
 	ComponentType
-		getType() const { return m_type; }
+		getType() const { return m_type; } /* Devuelve el tipo del componente.*/
 
 protected:
-	ComponentType m_type; // Tipo de Componente.
+	ComponentType m_type; /* Almacena el tipo de componente.*/
 };

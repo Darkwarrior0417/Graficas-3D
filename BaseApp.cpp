@@ -28,31 +28,40 @@
 */
 #include "BaseApp.h"
 
-int
+int 
 BaseApp::run() {
+	/*
+	* Inicializa la aplicación y entra en el bucle principal
+	* que maneja eventos, actualiza y renderiza.
+	*/
 	if (!initialize()) {
 		ERROR("BaseApp", "run", "Initializes result on a false statemente, check method validations");
 	}
 	while (m_window->isOpen()) {
-		m_window->handleEvents();
-		deltaTime = clock.restart();
-		update();
-		render();
+		m_window->handleEvents();  /* Manejea los eventos de la ventana */
+		deltaTime = clock.restart(); /* Se reinicia el reloj*/
+		update();  /* Actualiza la aplicacion*/
+		render(); /* Renderiza*/
 	}
 
-	cleanup();
+	cleanup(); /* Limpia los recursos*/
 	return 0;
 }
 
-bool
+bool 
 BaseApp::initialize() {
+
+	/*
+   * Inicializa la aplicación y entra en el bucle principal
+   */
+
 	m_window = new Window(800, 600, "Galvan Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
 		return false;
 	}
 
-	// Triangle Actor
+	/* Se crea un actor para el circulo*/
 	Circle = EngineUtilities::MakeShared<Actor>("Circle");
 	if (!Circle.isNull()) {
 		Circle->getComponent<ShapeFactory>()->createShape(ShapeType::CIRCLE);
@@ -60,65 +69,79 @@ BaseApp::initialize() {
 		Circle->getComponent<ShapeFactory>()->setFillColor(sf::Color::Blue);
 	}
 
-	// Triangle Actor
+	/* Se crea un actor para el triangulo*/
 	Triangle = EngineUtilities::MakeShared<Actor>("Triangle");
 	if (!Triangle.isNull()) {
 		Triangle->getComponent<ShapeFactory>()->createShape(ShapeType::TRIANGLE);
 	}
 
-	return true;
+	return true; /* Se devuelve a true si la inicializacion fue buena*/
 }
 
-void
+void 
 BaseApp::update() {
-	// Mouse Position
+	/*
+	* Actualiza la lógica del juego obteniendo la posición
+	* del ratón y actualizando el movimiento del círculo.
+	*/
+
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*m_window->getWindow());
 	sf::Vector2f mousePosF(static_cast<float>(mousePosition.x),
 		static_cast<float>(mousePosition.y));
 
 	if (!Circle.isNull()) {
-		/*Circle->getComponent<ShapeFactory>()->Seek(mousePosF,
-																							 200.0f,
-																							 deltaTime.asSeconds(),
-																							 10.0f);*/
-		updateMovement(deltaTime.asSeconds(), Circle);
+		
+		updateMovement(deltaTime.asSeconds(), Circle); /* Se actualiza el movimiento del circulo*/
 	}
 
 }
 
-void
+void 
 BaseApp::render() {
-	m_window->clear();
-	Circle->render(*m_window);
-	Triangle->render(*m_window);
-	m_window->display();
+	/*  
+     * Actualiza la lógica del juego obteniendo la posición 
+     * del ratón y actualizando el movimiento del círculo.
+     */ 
+	m_window->clear(); /* Limpia la ventana*/
+	Circle->render(*m_window); /* Se renderiza el circulo*/
+	Triangle->render(*m_window); /* Se renderiza el tringulo */
+	m_window->display();  /* Muestra los cambios en la ventana*/
 }
 
 void
 BaseApp::cleanup() {
-	m_window->destroy();
-	delete m_window;
+	/*
+	* Libera recursos al cerrar la aplicación
+	* y destruye la ventana.
+	*/
+	m_window->destroy(); /* Destruye la ventana*/
+	delete m_window; /* Libera la memoria que sew ocupo en la ventana*/
 }
 
 void
 BaseApp::updateMovement(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle) {
-	// Verificar si el Circle es nulo
-	if (!circle || circle.isNull()) return;
+	/*
+	 * Actualiza la posición del círculo en base a su
+	 * destino actual y el tiempo transcurrido.
+	 */
 
-	// Posici?n actual del destino (punto de recorrido)
-	sf::Vector2f targetPos = waypoints[currentWaypoint];
+	if (!circle || circle.isNull()) return; /* Se verifica si el circulo es nulo*/
 
-	// Llamar al Seek hacia el punto de recorrido actual
-	circle->getComponent<ShapeFactory>()->Seek(targetPos, 200.0f, deltaTime, 10.0f);
+	
+	sf::Vector2f targetPos = waypoints[currentWaypoint]; /* La posicion del WayPoint*/
 
-	// Obtener la posici?n actual del actor
-	sf::Vector2f currentPos = circle->getComponent<ShapeFactory>()->getShape()->getPosition();
+	
+	circle->getComponent<ShapeFactory>()->Seek(targetPos, 200.0f, deltaTime, 10.0f); /* Se llama a la funcion Seek*/
 
-	// Comprobar si el actor ha alcanzado el destino (o est? cerca)
-	float distanceToTarget = std::sqrt(std::pow(targetPos.x - currentPos.x, 2) + std::pow(targetPos.y - currentPos.y, 2));
+	
+	sf::Vector2f currentPos = circle->getComponent<ShapeFactory>()->getShape()->getPosition(); /* Posicion actual del circulo*/
 
-	if (distanceToTarget < 10.0f) { // Umbral para considerar que ha llegado
-		// Pasar al siguiente waypoint
-		currentWaypoint = (currentWaypoint + 1) % waypoints.size(); // Ciclar a trav?s de los puntos
+
+	float distanceToTarget = std::sqrt(std::pow(targetPos.x - currentPos.x, 2) + std::pow(targetPos.y - currentPos.y, 2)); /* Se calcula la distancia del circulo */
+
+	/* Verifica si todo has llegado al WayPoint*/
+	if (distanceToTarget < 10.0f) {
+	
+		currentWaypoint = (currentWaypoint + 1) % waypoints.size(); /* Se cicla a traves de los WayPoint*/
 	}
 }

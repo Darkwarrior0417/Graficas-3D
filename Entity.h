@@ -7,45 +7,32 @@ class Window;
 class
     Entity {
 public:
-    /**
-   * @brief Destructor virtual.
-   */
+    /* Destructor virtual para permitir la destrucción correcta de clases derivadas.*/
+  
     virtual
         ~Entity() = default;
 
-    /**
-   * @brief M?todo virtual puro para actualizar la entidad.
-   * @param deltaTime El tiempo transcurrido desde la ?ltima actualizaci?n.
-   */
+    /*Método virtual puro para actualizar la entidad. */
     virtual void
         update(float deltaTime) = 0;
 
-    /**
-   * @brief M?todo virtual puro para renderizar la entidad.
-   * @param Window Contexto del dispositivo para operaciones gr?ficas.
-   */
+    /* Método virtual puro para renderizar la entidad. (Debe ser implementado por clases derivadas.) */
     virtual void
         render(Window& window) = 0;
 
-    /**
-     * @brief Agrega un componente a la entidad.
-     * @tparam T Tipo del componente, debe derivar de Component.
-     * @param component Puntero compartido al componente que se va a agregar.
-     */
+    /*Método para agregar un componente a la entidad.*/
     template <typename T>
     void addComponent(EngineUtilities::TSharedPointer<T> component) {
+        /*Asegura que el tipo T sea derivado de la clase base Component.*/
         static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+        /* Convierte el componente a tipo Component y lo añade al vector.*/
         components.push_back(component.template dynamic_pointer_cast<Component>());
     }
 
 
 
-    /**
-     * @brief Obtiene un componente de la entidad.
-     * @tparam T Tipo del componente que se va a obtener.
-     * @return Puntero compartido al componente, o nullptr si no se encuentra.
-     */
-    template<typename T>
+   
+     template<typename T>
     EngineUtilities::TSharedPointer<T>
         getComponent() {
         for (auto& component : components) {
@@ -54,13 +41,14 @@ public:
                 return specificComponent;
             }
         }
+        /*Retorna un TSharedPointer vacío si no se encuentra el componente.*/
         return EngineUtilities::TSharedPointer<T>();
     }
 
 protected:
-    bool isActive;
+    bool isActive; /* Indica si la entidad está activa o no.*/
 
-    int id;
+    int id; /* Identificador único.*/
 
-    std::vector<EngineUtilities::TSharedPointer<Component>> components;
+    std::vector<EngineUtilities::TSharedPointer<Component>> components; /*Vector de componentes.*/
 };

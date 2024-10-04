@@ -35,41 +35,42 @@
 class
 	BaseApp {
 public:
-	BaseApp() = default;
-	~BaseApp() = default;
+	BaseApp() = default; /* Constructor por defecto de la clase BaseApp.*/
+	~BaseApp() = default; /* Destructor por defecto de la clase BaseApp.*/
 
-	// Funcion encargada de ejecutar la aplicacion en main
+	
 	int
-		run();
+		run(); /*Inicia la ejecución de la aplicación.*/
 
-	// Funcion de inicializacion
+
 	bool
-		initialize();
+		initialize(); /* Inicializa los recursos necesarios. */
 
-	// Funcion que se actualiza por frame
+	
 	void
-		update();
+		update(); /*  Actualiza la lógica.*/
 
-	// Funcion de renderizado
-	void
-		render();
 
 	void
-		cleanup();
+		render(); /* Renderiza los objetos en la ventana.*/
 
 	void
-		updateMovement(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
+		cleanup(); /* Libera los recursos utilizados.*/
+
+	void
+		updateMovement(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle); /* Actualiza la posición del círculo.*/
 private:
-	sf::Clock clock;
-	sf::Time deltaTime;
+	sf::Clock clock; /*Reloj para medir el tiempo transcurrido.*/
+	sf::Time deltaTime; /* Tiempo transcurrido*/
 
-	Window* m_window;
-	EngineUtilities::TSharedPointer<Actor> Triangle;
-	EngineUtilities::TSharedPointer<Actor> Circle;
+	Window* m_window; /* Puntero a la ventana de la aplicación.*/
+	EngineUtilities::TSharedPointer<Actor> Triangle; /* Puntero compartido al actor triangular.*/
+	EngineUtilities::TSharedPointer<Actor> Circle; /*Puntero compartido al actor circular.*/
 
-	// Seek Activity
-	int currentWaypoint = 0;
 
+	int currentWaypoint = 0; /*Índice del waypoint actual.*/
+
+	/* Vector que contiene las posiciones de los waypoints.*/
 	std::vector<sf::Vector2f> waypoints = {
 		{100.0f, 100.0f},
 		{400.0f, 100.0f},

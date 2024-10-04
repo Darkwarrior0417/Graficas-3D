@@ -1,30 +1,32 @@
 #pragma once
 
-// Librerias STD
+/* Librerías estándar de C++*/
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <thread>
 
-// Third Parties
+/* Las Third Parties */
 #include <SFML/Graphics.hpp>
 #include "TSharedPointer.h"
 #include "TWeakPointer.h"
 #include "TStaticPtr.h"
 #include "TUniquePtr.h"
-// Enums
+
+/*Enumeración que define los tipos de formas disponibles */
 enum
     ShapeType {
-    EMPTY = 0,
-    CIRCLE = 1,
-    RECTANGLE = 2,
-    TRIANGLE = 3
+    EMPTY = 0, /*Forma vacía/no definida*/
+    CIRCLE = 1, /* Forma de círculo*/
+    RECTANGLE = 2, /* Forma de rectángulo */
+    TRIANGLE = 3 /* Forma de triángulo*/
 };
 
-// MACRO for safe release of resources
+/*  Macro para liberar de forma segura punteros */
 #define SAFE_PTR_RELEASE(x) if(x != nullptr) { delete x; x = nullptr; }
 
+/* Macro para generar mensajes en consola al crear recursos */
 #define MESSAGE(classObj, method, state)                      \
 {                                                             \
     std::ostringstream os_;                                   \
@@ -33,6 +35,7 @@ enum
     std::cerr << os_.str();                                   \
 }
 
+/* Macro para generar mensajes de error en consola y finalizar el programa*/
 #define ERROR(classObj, method, errorMSG)                         \
 {                                                                 \
     std::ostringstream os_;                                       \
