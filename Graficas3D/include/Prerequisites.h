@@ -16,7 +16,7 @@
 #include "Memory\TStaticPtr.h"
 #include "Memory\TUniquePtr.h"
 
-// Imgui
+// ImGui
 #include <imgui.h>
 #include <imgui-SFML.h>
 

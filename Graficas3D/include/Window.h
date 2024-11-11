@@ -53,15 +53,15 @@ public:
 	void 
 	showInImGui();
 
-	// Funcion de inicializacion
+	// Función de inicialización
 	void
 	init();
 
-	// Funcion que se actualiza por frame
+	// Función que se actualiza por frame
 	void
 	update();
 
-	// Funcion de renderizado
+	// Función de renderizado
 	void
 	render();
 

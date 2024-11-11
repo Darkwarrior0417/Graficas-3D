@@ -16,7 +16,7 @@ public:
 
     /**
    * @brief Actualiza el componente de malla.
-   * @param deltaTime El tiempo transcurrido desde la ultima actualizaci�n.
+   * @param deltaTime El tiempo transcurrido desde la ultima actualización.
    */
     void
     update(float deltaTime) override {}
@@ -75,7 +75,7 @@ public:
         return scale;
     }
 private:
-    sf::Vector2f position;  // Posicion del objeto
-    sf::Vector2f rotation;  // Rotacion del objeto
+    sf::Vector2f position;  // Posición del objeto
+    sf::Vector2f rotation;  // Rotación del objeto
     sf::Vector2f scale;     // Escala del objeto
 };

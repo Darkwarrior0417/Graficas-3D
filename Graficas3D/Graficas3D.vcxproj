@@ -187,11 +187,11 @@
     <ClInclude Include="include\Memory\TStaticPtr.h" />
     <ClInclude Include="include\Memory\TUniquePtr.h" />
     <ClInclude Include="include\Memory\TWeakPointer.h" />
+    <ClInclude Include="include\NotificationService.h" />
     <ClInclude Include="include\Prerequisites.h" />
     <ClInclude Include="include\ShapeFactory.h" />
     <ClInclude Include="include\Texture.h" />
     <ClInclude Include="include\Window.h" />
-    <ClInclude Include="NotificationService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.cpp" />

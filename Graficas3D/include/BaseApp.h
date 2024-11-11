@@ -13,19 +13,19 @@ public:
 	BaseApp() = default;
 	~BaseApp();
 
-	// Funcion encargada de ejecutar la aplicacion en main
+	// Funcion encargada de ejecutar la aplicación en main
 	int
 	run();
 
-	// Funcion de inicializacion
+	// Función de inicialización
 	bool
 	initialize();
 
-	// Funcion que se actualiza por frame
+	// Función que se actualiza por frame
 	void
 	update();
 
-	// Funcion de renderizado
+	// Función de renderizado
 	void
 	render();
 
@@ -36,7 +36,7 @@ public:
 	updateMovement(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
 
 	int
-		ActualPosition = 0; //Posicion actual de los waypoints
+		ActualPosition = 0; //Posición actual de los waypoints
 
 private:
 	Window* m_window;

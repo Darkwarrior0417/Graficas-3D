@@ -19,30 +19,30 @@ public:
     * @param deltaTime El tiempo transcurrrido desde la última actualización
     */
     void
-        update(float deltaTime) override;
+    update(float deltaTime) override;
 
     /*
     * @brief Renderiza al actor
     * @param window Contexto del dispositivo para operaciones gráficas
     */
     void
-        render(Window& window) override;
+    render(Window& window) override;
 
     /**
      * @brief Destruye el actor y libera los recursos asociados.
      */
     void
-        destroy();
+    destroy();
 
     /**
      * @brief Función para obtener únicamente el nombre del actor
      */
     std::string
-        getName() const;
+    getName() const;
 
     /*
     * @brief Obtiene un componente específico del actor
-    * @tparam T Tipo de componente que se va a obtener
+    * @param T Tipo de componente que se va a obtener
     * @return Puntero compartido al componente, o nullptr si no se encuentra
     */
     template <typename T>

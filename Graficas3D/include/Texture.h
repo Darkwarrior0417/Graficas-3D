@@ -1,35 +1,35 @@
 #pragma once
 #include "Prerequisites.h"
-#include "Component.h"
+#include "ECS\Component.h"
 
 class
-Texture : public Component {
+	Texture : public Component {
 public:
-		Texture() = default;
+	Texture() = default;
 
-		Texture(std::string textureName, std::string extension) : m_textureName(textureName),
+	Texture(std::string textureName, std::string extension) : m_textureName(textureName),
 		m_extension(extension),
 		Component(ComponentType::TEXTURE) {
-			if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
-				std::cout << "Error de carga de textura" << std::endl;
+		if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
+			std::cout << "Error de carga de textura" << std::endl;
 		}
-			else {
-				m_textureName = "Default";
-				m_extension = "png";
+		else {
+			m_textureName = "Default";
+			m_extension = "png";
 			if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
 				std::cout << "Error de carga de textura" << std::endl;
 			}
 		}
 	}
 
-		virtual
+	virtual
 		~Texture() = default;
 
-		sf::Texture& getTexture() {
-			return m_texture;
-		}
+	sf::Texture& getTexture() {
+		return m_texture;
+	}
 private:
-		std::string m_textureName;
-		std::string m_extension;
-		sf::Texture m_texture;
+	std::string m_textureName;
+	std::string m_extension;
+	sf::Texture m_texture;
 };
