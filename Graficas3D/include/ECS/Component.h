@@ -36,7 +36,10 @@ public:
 	render(Window window) = 0; /* Método virtual para renderizar el componente*/
 
 	ComponentType
-	getType() const { return m_type; } /* Devuelve el tipo del componente.*/
+	getType() 
+		const {
+		return m_type;
+		} /* Devuelve el tipo del componente.*/
 
 protected:
 	ComponentType m_type; /* Almacena el tipo de componente.*/

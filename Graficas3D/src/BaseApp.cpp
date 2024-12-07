@@ -61,7 +61,7 @@ BaseApp::initialize() {
 
         // Establecer posición, rotación y escala desde Transform
         Track->getComponent<Transform>()->setTransform(Vector2(0.0f, 0.0f),
-            Vector2(0.0f, 0.0f), Vector2(40.0f, 60.0f));
+            Vector2(0.0f, 0.0f), Vector2(10.0f, 10.0f));
 
         // Cargar la textura de Track
         if (!resourceManager.loadTexture("Circuit", "png")) {
