@@ -194,10 +194,10 @@
     <ClInclude Include="include\ShapeFactory.h" />
     <ClInclude Include="include\Texture.h" />
     <ClInclude Include="include\Vectors\Quaternion.h" />
+    <ClInclude Include="include\Vectors\Vector2.h" />
+    <ClInclude Include="include\Vectors\Vector3.h" />
+    <ClInclude Include="include\Vectors\Vector4.h" />
     <ClInclude Include="include\Window.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="Vector3.h" />
-    <ClInclude Include="Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.cpp" />

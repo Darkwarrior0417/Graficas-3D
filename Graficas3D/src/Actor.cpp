@@ -22,13 +22,12 @@ Actor::update(float deltaTime) {
 
     if (transform && shape) {
         Vector2 position(transform->getPosition().x, transform->getPosition().y);
-        shape->setPosition(transform->getPosition());
+        shape->setPosition(position);
         shape->setRotation(transform->getRotation().x);
         Vector2 scale(transform->getScale().x, transform->getScale().y);
-        shape->setScale(transform->getScale());
+        shape->setScale(scale);
     }
 }
-
 void
 Actor::render(Window& window) {
     for (unsigned int i = 0; i < components.size(); i++) {

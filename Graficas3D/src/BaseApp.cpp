@@ -13,7 +13,6 @@ BaseApp::run() {
         notifier.addMessage(ConsolErrorType::ERROR, "Initialization failed, check method validations");
         notifier.saveMessagesToFile("LogData.txt");
         ERROR("BaseApp", "run", "Initialization failed, check method validations");
-        return -1; // Agregar un código de error en caso de fallo
     }
     else {
         notifier.addMessage(ConsolErrorType::NORMAL, "All programs were initialized correctly");
@@ -36,7 +35,7 @@ BaseApp::initialize() {
     NotificationService& notifier = NotificationService::getInstance();
     ResourceManager& resourceManager = ResourceManager::getInstance();
 
-    m_window = new Window(960, 540, "Chicuelos Engine");
+    m_window = new Window(1920, 1080, "Chicuelos Engine");
     if (!m_window) {
         notifier.addMessage(ConsolErrorType::ERROR, "Error on window creation, pointer is null");
         ERROR("BaseApp", "initialize", "Error on window creation, var is null");
@@ -44,15 +43,15 @@ BaseApp::initialize() {
     }
 
     // Al iniciar el programa, establecer los puntos de destino
-    points[0] = Vector2(25.0f, 560.0f);
-    points[1] = Vector2(25.0f, 20.0f);
-    points[2] = Vector2(700.0f, 20.0f);
-    points[3] = Vector2(700.0f, 200.0f);
-    points[4] = Vector2(500.0f, 200.0f);
-    points[5] = Vector2(500.0f, 120.0f);
-    points[6] = Vector2(350.0f, 120.0f);
-    points[7] = Vector2(350.0f, 340.0f);
-    points[8] = Vector2(700.0f, 340.0f);
+    points[0] = Vector2(720.0f, 350.0f);
+    points[1] = Vector2(720.0f, 260.0f);
+    points[2] = Vector2(125.0f, 50.0f);
+    points[3] = Vector2(70.0f, 120.0f);
+    points[4] = Vector2(70.0f, 450.0f);
+    points[5] = Vector2(400.0f, 350.0f);
+    points[6] = Vector2(550.0f, 500.0f);
+    points[7] = Vector2(650.0f, 550.0f);
+    points[8] = Vector2(720.0f, 450.0f);
 
     // Track Actor
     Track = EngineUtilities::MakeShared<Actor>("Track");
@@ -61,7 +60,7 @@ BaseApp::initialize() {
 
         // Establecer posición, rotación y escala desde Transform
         Track->getComponent<Transform>()->setTransform(Vector2(0.0f, 0.0f),
-            Vector2(0.0f, 0.0f), Vector2(10.0f, 10.0f));
+            Vector2(0.0f, 0.0f), Vector2(11.0f, 12.0f));
 
         // Cargar la textura de Track
         if (!resourceManager.loadTexture("Circuit", "png")) {

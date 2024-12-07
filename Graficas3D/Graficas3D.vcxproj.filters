@@ -102,15 +102,6 @@
     <ClInclude Include="include\Memory\TWeakPointer.h">
       <Filter>Archivos de encabezado\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Archivos de encabezado\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Archivos de encabezado\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector4.h">
-      <Filter>Archivos de encabezado\Vectors</Filter>
-    </ClInclude>
     <ClInclude Include="include\Vectors\Quaternion.h">
       <Filter>Archivos de encabezado\Vectors</Filter>
     </ClInclude>
@@ -122,6 +113,15 @@
     </ClInclude>
     <ClInclude Include="include\Services\NotificationService.h">
       <Filter>Archivos de encabezado\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vectors\Vector2.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vectors\Vector3.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vectors\Vector4.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
