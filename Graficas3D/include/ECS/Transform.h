@@ -4,7 +4,7 @@
 #include "Window.h"
 
 class
-    Transform : public Component {
+Transform : public Component {
 public:
     Transform() : position(0.0f, 0.0f),
         rotation(0.0f, 0.0f),

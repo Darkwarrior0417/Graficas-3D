@@ -8,10 +8,10 @@ public:
 	Texture() = default;
 
 	Texture(std::string textureName, std::string extension) : m_textureName(textureName),
-		m_extension(extension),
-		Component(ComponentType::TEXTURE) {
-		if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
-			std::cout << "Error de carga de textura" << std::endl;
+	m_extension(extension),
+	Component(ComponentType::TEXTURE) {
+	if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
+		std::cout << "Error de carga de textura" << std::endl;
 		/* }
 		else {
 			m_textureName = "Default";

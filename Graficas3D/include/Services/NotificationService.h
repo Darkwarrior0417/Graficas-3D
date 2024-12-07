@@ -25,14 +25,16 @@ public:
      * @param errType Tipo de error de la notificación.
      * @param message Mensaje a agregar.
      */
-    void addMessage(ConsolErrorType errType, const std::string& message) {
+    void 
+    addMessage(ConsolErrorType errType, const std::string& message) {
         m_programMessages[errType] = message;
     }
 
     /**
      * @brief Muestra todos los mensajes en consola.
      */
-    void showAllMessages() const {
+    void 
+    showAllMessages() const {
         for (const auto& pair : m_programMessages) {
             std::cout << "Code: " << pair.first << " - Message: " << pair.second << std::endl;
         }
@@ -42,7 +44,8 @@ public:
      * @brief Obtiene un mensaje según el código de error.
      * @param errType Tipo de error del mensaje.
      */
-    std::string getMessage(ConsolErrorType errType) const {
+    std::string 
+    getMessage(ConsolErrorType errType) const {
         auto it = m_programMessages.find(errType);
         if (it != m_programMessages.end()) {
             return it->second;
@@ -54,7 +57,8 @@ public:
      * @brief Guarda los mensajes en un archivo.
      * @param filename Nombre del archivo donde se guardarán los mensajes.
      */
-    void saveMessagesToFile(const std::string& filename) const {
+    void 
+    saveMessagesToFile(const std::string& filename) const {
         std::ofstream file(filename);
         if (!file.is_open()) {
             std::cerr << "No se pudo abrir el archivo para guardar los mensajes." << std::endl;

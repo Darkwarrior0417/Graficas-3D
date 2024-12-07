@@ -49,7 +49,7 @@ public:
 
 	// Función de inicialización
 	void
-		init();
+	init();
 
 	void 
 	renderToTexture();
