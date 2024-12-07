@@ -25,6 +25,9 @@
     <Filter Include="Archivos de encabezado\ECS">
       <UniqueIdentifier>{06af01af-79af-4860-a7e3-1303bf890396}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Vectors">
+      <UniqueIdentifier>{cc9261f7-dbdf-4359-9081-c540de2a474c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML_export.h">
@@ -99,7 +102,25 @@
     <ClInclude Include="include\Memory\TWeakPointer.h">
       <Filter>Archivos de encabezado\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="include\NotificationService.h">
+    <ClInclude Include="Vector2.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vectors\Quaternion.h">
+      <Filter>Archivos de encabezado\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MathUtilities.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Services\ResourceManager.h">
+      <Filter>Archivos de encabezado\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Services\NotificationService.h">
       <Filter>Archivos de encabezado\Services</Filter>
     </ClInclude>
   </ItemGroup>

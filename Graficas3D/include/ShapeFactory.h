@@ -6,20 +6,20 @@
 class
 ShapeFactory : public Component {
 public:
-		/* Constructor por defecto*/
-		ShapeFactory() = default;
+/* Constructor por defecto*/
+	ShapeFactory() = default;
 
 		/*Destructor por defecto */
-		virtual
-		~ShapeFactory() = default;
+	virtual
+	~ShapeFactory() = default;
 
 		/*Constructor que inicializa con un tipo de forma vacío */
-		ShapeFactory(ShapeType shapeType) :
-		m_shape(nullptr), m_shapeType(ShapeType::EMPTY), Component(ComponentType::SHAPE) {}
+	ShapeFactory(ShapeType shapeType) :
+	m_shape(nullptr), m_shapeType(ShapeType::EMPTY), Component(ComponentType::SHAPE) {}
 
 		/* Crea una forma basada en el tipo dado.*/
-		sf::Shape*
-		createShape(ShapeType shapeType);
+	sf::Shape*
+	createShape(ShapeType shapeType);
 
 	/* Función vacía de actualización*/
 	void
@@ -35,7 +35,7 @@ public:
 
 	/* Establece la posición de la forma usando un vector 2D.*/
 	void
-	setPosition(const sf::Vector2f& position);
+	setPosition(const Vector2& position);
 
 	/* Establece el color de relleno de la forma.*/
 	void
@@ -45,7 +45,7 @@ public:
 	setRotation(float angle);
 
 	void
-	setScale(const sf::Vector2f& scl);
+	setScale(const Vector2& scl);
 
 	/* Devuelve la forma almacenada.*/
 	sf::Shape*

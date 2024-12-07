@@ -21,8 +21,10 @@ Actor::update(float deltaTime) {
     auto shape = getComponent<ShapeFactory>();
 
     if (transform && shape) {
+        Vector2 position(transform->getPosition().x, transform->getPosition().y);
         shape->setPosition(transform->getPosition());
         shape->setRotation(transform->getRotation().x);
+        Vector2 scale(transform->getScale().x, transform->getScale().y);
         shape->setScale(transform->getScale());
     }
 }
@@ -43,4 +45,8 @@ Actor::destroy() {
 std::string
 Actor::getName() const {
     return m_name;
+}
+void
+Actor::setName(const std::string& newName) {
+    m_name = newName;
 }

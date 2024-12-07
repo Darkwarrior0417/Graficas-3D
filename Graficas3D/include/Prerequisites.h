@@ -8,13 +8,20 @@
 #include <thread>
 #include <map>
 #include <fstream> 
+#include <unordered_map>
 
 /* Las Third Parties */
 #include <SFML/Graphics.hpp>    
-#include "Memory\TSharedPointer.h"
-#include "Memory\TWeakPointer.h"
-#include "Memory\TStaticPtr.h"
-#include "Memory\TUniquePtr.h"
+#include "Memory/TSharedPointer.h"
+#include "Memory/TWeakPointer.h"
+#include "Memory/TStaticPtr.h"
+#include "Memory/TUniquePtr.h"
+
+// Librería Matemática
+#include "Vectors/Vector2.h"
+#include "Vectors/Vector3.h"
+#include "Vectors/Vector4.h"
+#include "Vectors/Quaternion.h""
 
 // ImGui
 #include <imgui.h>

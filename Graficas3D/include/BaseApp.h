@@ -1,19 +1,20 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Prerequisites.h"
 #include "Window.h"
 #include "ShapeFactory.h"
 #include "ECS\Actor.h"
 #include "GUI.h"
-#include "NotificationService.h"
+#include "Services/NotificationService.h"
+#include "Services/ResourceManager.h"
 
 class
 BaseApp {
 public:
+
 	BaseApp() = default;
 	~BaseApp();
 
-	// Funcion encargada de ejecutar la aplicación en main
+	// Función encargada de ejecutar la aplicación en main
 	int
 	run();
 
@@ -35,30 +36,24 @@ public:
 	void
 	updateMovement(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
 
-	int
-		ActualPosition = 0; //Posición actual de los waypoints
-
 private:
+	sf::Clock clock;
+	sf::Time deltaTime;
+
 	Window* m_window;
 	EngineUtilities::TSharedPointer<Actor> Triangle;
 	EngineUtilities::TSharedPointer<Actor> Circle;
 	EngineUtilities::TSharedPointer<Actor> Track;
+
 	std::vector< EngineUtilities::TSharedPointer<Actor>> m_actors;
 
-	// Seek Activity
-	int currentWaypoint = 0;
 
-	std::vector<sf::Vector2f> waypoints = {
-		{720.0f, 350.0f},
-		{720.0f, 260.0f},
-		{125.0f, 50.0f},
-		{70.0f, 120.0f},
-		{70.0f, 450.0f},
-		{400.0f, 350.0f},
-		{550.0f, 500.0f},
-		{650.0f, 550.0f},
-		{720.0f, 450.0f}
-	};
+	//Array para la actividad de los puntos
+	Vector2 points[9];
+	int m_currentPoint = 0;
+	int m_currentActor = 0;
+
+
 	sf::Texture Waluigi;
 	sf::Texture texture;
 

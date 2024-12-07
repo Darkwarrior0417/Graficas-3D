@@ -183,15 +183,21 @@
     <ClInclude Include="include\ECS\Entity.h" />
     <ClInclude Include="include\ECS\Transform.h" />
     <ClInclude Include="include\GUI.h" />
+    <ClInclude Include="include\MathUtilities.h" />
     <ClInclude Include="include\Memory\TSharedPointer.h" />
     <ClInclude Include="include\Memory\TStaticPtr.h" />
     <ClInclude Include="include\Memory\TUniquePtr.h" />
     <ClInclude Include="include\Memory\TWeakPointer.h" />
-    <ClInclude Include="include\NotificationService.h" />
     <ClInclude Include="include\Prerequisites.h" />
+    <ClInclude Include="include\Services\NotificationService.h" />
+    <ClInclude Include="include\Services\ResourceManager.h" />
     <ClInclude Include="include\ShapeFactory.h" />
     <ClInclude Include="include\Texture.h" />
+    <ClInclude Include="include\Vectors\Quaternion.h" />
     <ClInclude Include="include\Window.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.cpp" />

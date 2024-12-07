@@ -47,16 +47,17 @@ public:
 	sf::RenderWindow* 
 	getWindow();
 
+	// Función de inicialización
+	void
+		init();
+
 	void 
 	renderToTexture();
 
 	void 
 	showInImGui();
 
-	// Función de inicialización
-	void
-	init();
-
+	
 	// Función que se actualiza por frame
 	void
 	update();

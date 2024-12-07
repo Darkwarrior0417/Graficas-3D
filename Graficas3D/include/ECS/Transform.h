@@ -4,15 +4,15 @@
 #include "Window.h"
 
 class
-Transform : public Component {
+    Transform : public Component {
 public:
-        Transform() : position(0.0f, 0.0f),
-            rotation(0.0f, 0.0f),
-            scale(1.0f, 1.0f),
-            Component(ComponentType::TRANSFORM) {}
+    Transform() : position(0.0f, 0.0f),
+        rotation(0.0f, 0.0f),
+        scale(1.0f, 1.0f),
+        Component(ComponentType::TRANSFORM) {}
 
-        virtual
-        ~Transform() = default;
+    virtual
+    ~Transform() = default;
 
     /**
    * @brief Actualiza el componente de malla.
@@ -28,15 +28,64 @@ public:
     void
     render(Window window) override {}
 
-    void
-    destroy() {};
 
     void
-    Seek(const sf::Vector2f& targetPosition,
-            float speed,
-            float deltaTime,
-            float range) {
-        sf::Vector2f direction = targetPosition - position;
+    setPosition(const Vector2& _position) {
+        position = _position;
+    }
+
+    void
+    setRotation(const Vector2& _rotation) {
+        rotation = _rotation;
+    }
+    void
+    setScale(const Vector2& _scale) {
+        scale = _scale;
+    }
+
+    Vector2
+    getPosition() {
+        return position;
+    }
+
+    Vector2
+    getRotation() {
+        return rotation;
+    }
+
+    float*
+    getPosData() {
+        return &position.x;
+    }
+
+    Vector2
+    getScale() {
+        return scale;
+    }
+
+    float*
+    getRotData() {
+        return &rotation.x;
+    }
+
+    float*
+    getSclData() {
+        return &scale.x;
+    }
+
+    void
+    setTransform(const Vector2& pos, const Vector2& rot, const Vector2& scl) {
+        position = pos;
+        rotation = rot;
+        scale = scl;
+    }
+
+    void
+    Seek(const Vector2& targetPosition,
+        float speed,
+        float deltaTime,
+        float range) {
+        Vector2 direction = targetPosition - position;
         float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
         if (length > range) {
@@ -46,36 +95,9 @@ public:
     }
 
     void
-    setPosition(const sf::Vector2f& _position) {
-        position = _position;
-    }
-
-    void
-    setRotation(const sf::Vector2f& _rotation) {
-        rotation = _rotation;
-    }
-
-    void
-    setScale(const sf::Vector2f& _scale) {
-        scale = _scale;
-    }
-
-    sf::Vector2f&
-    getPosition() {
-        return position;
-    }
-
-    sf::Vector2f&
-    getRotation() {
-        return rotation;
-    }
-
-    sf::Vector2f&
-        getScale() {
-        return scale;
-    }
+    destroy() {};
 private:
-    sf::Vector2f position;  // Posición del objeto
-    sf::Vector2f rotation;  // Rotación del objeto
-    sf::Vector2f scale;     // Escala del objeto
+    Vector2 position; // Posición del objeto
+    Vector2 rotation; // Rotación del objeto
+    Vector2 scale;	// Escala del objeto
 };

@@ -5,14 +5,12 @@ Window::Window(int width, int height, const std::string& title) {
 
 	if (!m_window) {
 		ERROR("Window", "Window", "CHECK CONSTRUCTOR");
-		// NotificationService.instace.Notify(ConsolErrorType::ERROR,
-		//	"Error initializing the window class, check for constructor");
 	}
 	else {
 		MESSAGE("Window", "Window", "OK");
 	}
 
-	// Initalize the ImGui Resource
+	// Initialize the ImGui Resource
 	ImGui::SFML::Init(*m_window);
 
 	// Crear RenderTexture con las mismas dimensiones que la ventana
@@ -22,7 +20,7 @@ Window::Window(int width, int height, const std::string& title) {
 }
 
 Window::~Window() {
-	ImGui::SFML::Shutdown();
+	delete m_window;
 	delete m_window;
 }
 
@@ -37,7 +35,7 @@ Window::handleEvents() {
 			m_window->close();
 			break;
 		case sf::Event::Resized:
-			// Obtener el nuevo tama�o de la ventana
+			// Obtener el nuevo tamaño de la ventana
 			unsigned int width = event.size.width;
 			unsigned int height = event.size.height;
 
@@ -45,7 +43,7 @@ Window::handleEvents() {
 			m_view.setSize(static_cast<float>(width), static_cast<float>(height));
 			m_window->setView(m_view);
 
-			// Actualizar RenderTexture si la ventana cambia de tama�o
+			// Actualizar RenderTexture si la ventana cambia de tamaño
 			m_renderTexture.create(width, height);
 			break;
 		}
@@ -114,7 +112,7 @@ Window::getWindow() {
 
 void
 Window::renderToTexture() {
-	// Despu�s de renderizar todo lo que quieras en la textura
+	// Después de renderizar todo lo que quieras en la textura
 	m_renderTexture.display();
 }
 
@@ -122,7 +120,7 @@ void
 Window::showInImGui() {
 	const sf::Texture& texture = m_renderTexture.getTexture();
 
-	// Obtener el tama�o de la textura
+	// Obtener el tamaño de la textura
 	ImVec2 size(texture.getSize().x, texture.getSize().y);
 
 	// Renderizar la textura en ImGui con las coordenadas UV invertidas en el eje Y

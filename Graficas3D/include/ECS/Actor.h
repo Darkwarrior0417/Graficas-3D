@@ -39,6 +39,11 @@ public:
      */
     std::string
     getName() const;
+    /*
+        @brief Permite la modificación del nombre del actor
+    */
+    void
+        setName(const std::string& newName);
 
     /*
     * @brief Obtiene un componente específico del actor

@@ -3,7 +3,7 @@
 #include "ECS\Component.h"
 
 class
-	Texture : public Component {
+Texture : public Component {
 public:
 	Texture() = default;
 
@@ -12,22 +12,31 @@ public:
 		Component(ComponentType::TEXTURE) {
 		if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
 			std::cout << "Error de carga de textura" << std::endl;
-		}
+		/* }
 		else {
 			m_textureName = "Default";
 			m_extension = "png";
 			if (!m_texture.loadFromFile(m_textureName + "." + m_extension)) {
 				std::cout << "Error de carga de textura" << std::endl;
-			}
+			}*/
 		}
 	}
 
 	virtual
-		~Texture() = default;
+	~Texture() = default;
 
-	sf::Texture& getTexture() {
+	sf::Texture& 
+	getTexture() {
 		return m_texture;
 	}
+
+	void
+	update(float deltaTime) override {
+	}
+	void
+	render(Window window)override {
+	}
+
 private:
 	std::string m_textureName;
 	std::string m_extension;
